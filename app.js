@@ -83,7 +83,11 @@ function initGoogleFormButton() {
       return;
     }
 
-    window.location.href = GOOGLE_FORM_URL;
+    const w = window.open(GOOGLE_FORM_URL, "_blank", "noopener,noreferrer");
+    if (!w) {
+      // Popup blocker fallback
+      window.location.href = GOOGLE_FORM_URL;
+    }
   });
 }
 
